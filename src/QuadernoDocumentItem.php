@@ -1,6 +1,7 @@
 <?php
+
 /**
-* Quaderno Item
+* Quaderno Document Item
 *
 * @package   Quaderno PHP
 * @author    Quaderno <hello@quaderno.io>
@@ -8,8 +9,6 @@
 * @license   http://opensource.org/licenses/gpl-2.0.php GNU Public License
 */
 
-class QuadernoItem extends QuadernoModel
-{
-	static protected $model = 'items';
+class QuadernoDocumentItem extends QuadernoClass {
 }
 ?>

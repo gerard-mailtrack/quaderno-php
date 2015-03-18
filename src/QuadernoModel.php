@@ -1,6 +1,7 @@
 <?php
+
 /**
-* Quaderno Load
+* Quaderno Model
 *
 * Interface for every model
 *

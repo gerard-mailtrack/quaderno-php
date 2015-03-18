@@ -1,6 +1,7 @@
 <?php
+
 /**
-* Quaderno Payment
+* Quaderno Estimate
 *
 * @package   Quaderno PHP
 * @author    Quaderno <hello@quaderno.io>
@@ -8,8 +9,13 @@
 * @license   http://opensource.org/licenses/gpl-2.0.php GNU Public License
 */
 
-class QuadernoPayment extends QuadernoClass
+class QuadernoEstimate extends QuadernoDocument
 {
-	static protected $model = 'payments';
+	static protected $model = 'estimates';
+
+	public function deliver()
+	{
+		return $this->execDeliver();
+	}
 }
 ?>

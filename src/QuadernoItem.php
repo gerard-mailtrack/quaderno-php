@@ -1,6 +1,7 @@
 <?php
+
 /**
-* Quaderno Webhook
+* Quaderno Item
 *
 * @package   Quaderno PHP
 * @author    Quaderno <hello@quaderno.io>
@@ -8,7 +9,8 @@
 * @license   http://opensource.org/licenses/gpl-2.0.php GNU Public License
 */
 
-class QuadernoWebhook extends QuadernoModel {
-	static protected $model = 'webhooks';
+class QuadernoItem extends QuadernoModel
+{
+	static protected $model = 'items';
 }
 ?>
