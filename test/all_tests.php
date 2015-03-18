@@ -1,11 +1,11 @@
 <?php  
 require_once(dirname(__FILE__) . '/simpletest/autorun.php');
-require_once(dirname(__FILE__) . '/../quaderno_load.php');
+require_once(dirname(__FILE__) . '/../vendor/autoload.php');
 
 class AllTests extends TestSuite {
   # please use your own api_key and subdomain
-  const API_KEY = 'HPx1vDBKCG85X1HppFo8';
-  const API_URL = 'http://uruk-1832.sandbox-quadernoapp.com/api/v1/';
+  const API_KEY = 'key';
+  const API_URL = 'url';
 
   function __construct() {
     parent::__construct();

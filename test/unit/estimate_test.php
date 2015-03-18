@@ -1,5 +1,4 @@
 <?php
-require_once(dirname(__FILE__) . '/../../quaderno_load.php');
 
 class EstimateTest extends UnitTestCase { 
   private $contact = null;
