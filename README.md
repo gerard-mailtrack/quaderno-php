@@ -6,8 +6,8 @@ You will need this if you want to connect to the Quaderno API from your PHP appl
 
 ## Requirements
 * PHP 5
-* [cURL] (http://php.net/manual/en/book.curl.php) (included by default in recent PHP versions)
-* [json]
+* [cURL](http://php.net/manual/en/book.curl.php) (included by default in recent PHP versions)
+* [json](http://php.net/manual/en/book.json.php) (also usually included)
 
 ## Installation
 Copy all the files into a single folder in your project
