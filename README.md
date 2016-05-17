@@ -210,7 +210,7 @@ With the included `Dockerfile` you can run the whole test suite inside a contain
 
 ```
 docker build -t quaderno-php .
-docker run -e QUADERNO_SANDBOX_KEY={your sandbox key} -e QUADERNO_SANDBOX_URL={your sandbox value} quaderno-php test/all_tests.php
+docker run -e QUADERNO_SANDBOX_KEY={your sandbox key} -e QUADERNO_SANDBOX_URL={your sandbox URL} quaderno-php test/all_tests.php
 ```
 
 ## More information
