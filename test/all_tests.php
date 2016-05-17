@@ -3,13 +3,10 @@ require_once(dirname(__FILE__) . '/simpletest/autorun.php');
 require_once(dirname(__FILE__) . '/../vendor/autoload.php');
 
 class AllTests extends TestSuite {
-  # please use your own api_key and subdomain
-  const API_KEY = 'key';
-  const API_URL = 'url';
-
   function __construct() {
     parent::__construct();
-    QuadernoBase::init(self::API_KEY, self::API_URL);
+    QuadernoBase::init(getenv('QUADERNO_SANDBOX_KEY'), getenv('QUADERNO_SANDBOX_URL'));
+    echo 'Running all tests...';
     $this->addFile(dirname(__FILE__) . '/unit/general_test.php');
     $this->addFile(dirname(__FILE__) . '/unit/contact_test.php');
     $this->addFile(dirname(__FILE__) . '/unit/item_test.php');
