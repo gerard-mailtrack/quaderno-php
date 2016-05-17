@@ -7,6 +7,7 @@ You will need this if you want to connect to the Quaderno API from your PHP appl
 ## Requirements
 * PHP 5
 * [cURL] (http://php.net/manual/en/book.curl.php) (included by default in recent PHP versions)
+* [json]
 
 ## Installation
 Copy all the files into a single folder in your project
@@ -201,6 +202,15 @@ $item->name = 'Jelly Pizza';
 $item->tax_2_name = 'FOODTAX';
 $item->tax_2_rate = '70.77';
 $item->save();
+```
+
+## Running tests
+
+With the included `Dockerfile` you can run the whole test suite inside a container.
+
+```
+docker build -t quaderno-php .
+docker run -e QUADERNO_SANDBOX_KEY={your sandbox key} -e QUADERNO_SANDBOX_URL={your sandbox value} quaderno-php test/all_tests.php
 ```
 
 ## More information
