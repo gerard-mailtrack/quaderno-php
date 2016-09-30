@@ -22,7 +22,7 @@ require_once 'quaderno_load.php';
 
 ### Setup
 ```php
-QuadernoBase::init('YOUR_API_KEY', 'YOUR_API_URL');
+QuadernoBase::init('YOUR_API_KEY', 'YOUR_API_URL', API_VERSION); // API_VERSION is optional as it defaults to the account API version
 ```
 
 ### Testing connection
@@ -60,6 +60,14 @@ $contact->first_name = 'Joey';
 $contact->save();
 ```
 
+#### Retrieve a contact by payment gateway ID
+```php
+$gateway = 'stripe';
+$customer_id = 'cus_Av4LiDPayM3nt_ID';
+
+$contact = QuadernoContact::retrieve($id, $gateway); // returns a QuadernoContact (success) or false (error)
+```
+
 ### Documents
 A document is either an _invoice_, an _expense_, a _credit_ or an _estimate_.
 
@@ -76,6 +84,21 @@ Note: In order to looking up for number, contact name or P.O. number fields, you
 ```php
 $invoices = QuadernoInvoice::find(array('q' => $my_po_number));   // Search filtering 
 ```
+
+
+#### Retrieve a document by payment gateway ID
+```php
+$gateway = 'stripe'; 
+$payment_id = 'ch_Av4LiDPayM3nt_ID';
+$refund_id = 'ch_Av4LiDR3fuNd_ID';
+
+
+$invoice = QuadernoInvoice::retrieve($payment_id, $gateway); // returns a QuadernoInvoice (success) or false (error)
+
+$credit_note = QuadernoCredit::retrieve($refund_id, $gateway); // returns a QuadernoCredit (success) or false (error)
+
+```
+
 
 #### Create and update a document
 ```php
@@ -145,7 +168,7 @@ $webhook->save();              // Returns true (success) or false (error)
 
 $webhook->url = "";
 $webhook->save();              // Returns false - url is a required field
-foreach($webhook->errors as $field => $errors) { 
+foreach($webhook->errors as $field => $errors) {
   print "{$field}: ";
   foreach ($errors as $e) print $e;
 }
@@ -170,6 +193,19 @@ $tax->name;  // "VAT"
 $tax->rate;  // 21.0
 ```
 
+### Evidences
+```php
+$evidence = new QuadernoEvidence(array(
+                                        'document_id' => $invoice->id,
+                                        'billing_country' => $contact->country,
+                                        'ip_address' => '127.0.0.1',
+                                        'bank_country' => 'ES'));
+
+$evidence->save();              // Returns true (success) or false (error)
+```
+
+#### Creating a location evidence
+
 ### Items
 The items are those products or services that you sell to your customers.
 
@@ -193,7 +229,7 @@ $item->save();                             // Returns true (success) or false (e
 
 $item->name = "";
 $item->save();                             // Returns false - name is a required field
-foreach($item->errors as $field => $errors) { 
+foreach($item->errors as $field => $errors) {
   print "{$field}: ";
   foreach ($errors as $e) print $e;
 }
